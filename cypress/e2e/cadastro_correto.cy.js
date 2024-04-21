@@ -1,9 +1,18 @@
-describe('Página de Login', () => {
-  it('Faz login com a conta do Gustavo', () => {
+describe('Página de Cadastro', () => {
+  it('Faz login no sistema (com a conta do Gustavo), avança para a página de cadastro e realiza um cadastro com sucesso', () => {
     cy.visit('https://desafio.qa.bridge.ufsc.br/')
     cy.get('[id="usuario"]').type('gustavoberettag@gmail.com')
     cy.get('[id="password"]').type('PoP3PqEo2PzUAgOOkIqxEF')
     cy.get('[id="termos-de-uso"]').click()
     cy.get('[class="btn-acessar"]').click()
+    cy.contains('a', 'Iniciar desafio').click()
+    cy.get('[id="cpf"]').type('09739379982')
+    cy.get('[id="cns"]').type('778577305390018')
+    cy.get('[id="nome-completo"]').type('Gustavo Beretta Gonçalves')
+    cy.get('[id="data-nascimento"]').type('09092003')
+    cy.get('[id="sexo"]').type('Masculino')
+    cy.get('[id="telefone-residencial"]').type('04832580520')
+    cy.get('[id="telefone-celular"]').type('48991896577')
+    cy.contains('button', 'Salvar').click()
   })
 })
